@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
-// import './css/App.css';
+ import '../css/App.css';
 
 import AddWorkingFlows from './AddWorkingFlows';
 import ListOfTheWork from './ListOfTheWorks';
 import SearchWorks from './SearchWorks';
 
 class App extends Component {
+  constructor(){
+    super();
+      this.state = {
+        myName: 'Ali'
+      };
+  }
   render() {
     return (
       <main className="page bg-gray" id="workingflow">
@@ -13,6 +19,7 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
+                {this.state.myName}
                 <AddWorkingFlows />
                 <SearchWorks />
                 <ListOfTheWork />
