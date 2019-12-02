@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+// import './css/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AddWorkingFlows from './AddWorkingFlows';
+import ListOfTheWork from './ListOfTheWorks';
+import SearchWorks from './SearchWorks';
+
+class App extends Component {
+  render() {
+    return (
+      <main className="page bg-gray" id="workingflow">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 bg-white">
+              <div className="container">
+                <AddWorkingFlows />
+                <SearchWorks />
+                <ListOfTheWork />
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 }
-
 export default App;
