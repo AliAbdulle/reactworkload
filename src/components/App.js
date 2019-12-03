@@ -13,7 +13,7 @@ class App extends Component {
       };
   }
 
-  componentWillMount() {
+  componentDidMount() {
       fetch('./data.json')
       .then(response => response.json())
       .then(result => {
@@ -26,19 +26,15 @@ class App extends Component {
       });
   }
   render() {
-    const listItems = this.state.myworks.map(item => (
-      <div>{item.fullName}</div>
-    ));
     return (
       <main className="page bg-gray" id="workingflow">
         <div className="container">
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                {listItems}
                 <AddWorkingFlows />
                 <SearchWorks />
-                <ListOfTheWork />
+                <ListOfTheWork works = {this.state.myworks}/>
               </div>
             </div>
           </div>

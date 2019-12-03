@@ -1,22 +1,45 @@
-.App {
-  text-align: center;
+.add-appointment .card-body {
+  display: none;
 }
 
-.App-logo {
-  height: 40vmin;
+.works-addheading {
+  cursor: pointer;
+  user-select: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.work-list {
+  font-size: 1.1em;
 }
 
-.App-link {
-  color: #09d3ac;
+.works-list .pet-item {
+  border-bottom: 1px dotted gray;
+}
+
+.works-list .pet-item:last-child {
+  border-bottom: none;
+}
+
+.works-list .title-name {
+  font-weight: 600;
+  color: #337ab7;
+  font-size: 1.3em;
+  line-height: 100%;
+}
+
+.works-list .label-item {
+  font-weight: 600;
+  color: #667b82;
+}
+
+.works-list .dt-date {
+  font-style: italic;
+}
+
+.works-list .hobby-notes {
+  line-height: 120%;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #a9aeb2;
 }
