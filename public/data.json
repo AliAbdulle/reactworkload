@@ -1,0 +1,27 @@
+
+[
+    {
+        "title": "IT",
+        "fullName": "Kamal Hersi",
+        "hireDate": "2010-01-19 07:00",
+        "habby": "He liked to play soccer, and watch movies"
+    },
+    {
+        "title": "HR",
+        "fullName": "Marry, Hole",
+        "hireDate": "2009-09-11 08:00",
+        "habby": "He liked to cook, and help people"
+    },
+    {
+        "title": "Sales Person",
+        "fullName": "David roller",
+        "hireDate": "2018-01-10 09:00",
+        "habby": "He liked to play soccer, and watch movies"
+    },
+    {
+        "title": "Operation Manager",
+        "fullName": "Marj Joleas",
+        "hireDate": "2009-01-19 07:00",
+        "habby": "He liked to play soccer, and watch movies"
+    }
+]
