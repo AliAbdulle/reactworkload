@@ -9,21 +9,36 @@ class App extends Component {
   constructor(){
     super();
       this.state = {
-        myName: 'Ali'
+        myworks: []
       };
   }
+
+  componentWillMount() {
+      fetch('./data.json')
+      .then(response => response.json())
+      .then(result => {
+        const works = result.map(item =>{
+          return item;
+        })
+        this.setState({
+          myworks: works
+        });
+      });
+  }
   render() {
+    const listItems = this.state.myworks.map(item => (
+      <div>{item.fullName}</div>
+    ));
     return (
       <main className="page bg-gray" id="workingflow">
         <div className="container">
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                {this.state.myName}
+                {listItems}
                 <AddWorkingFlows />
                 <SearchWorks />
                 <ListOfTheWork />
-
               </div>
             </div>
           </div>
