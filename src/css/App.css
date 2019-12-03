@@ -11,11 +11,11 @@
   font-size: 1.1em;
 }
 
-.works-list .pet-item {
+.appointment-list .title-item {
   border-bottom: 1px dotted gray;
 }
 
-.works-list .pet-item:last-child {
+.works-list .dt-date:last-child {
   border-bottom: none;
 }
 
@@ -26,7 +26,7 @@
   line-height: 100%;
 }
 
-.works-list .label-item {
+.works-list .dt-date {
   font-weight: 600;
   color: #667b82;
 }
@@ -35,7 +35,7 @@
   font-style: italic;
 }
 
-.works-list .hobby-notes {
+.works-list .dt-date {
   line-height: 120%;
 }
 
