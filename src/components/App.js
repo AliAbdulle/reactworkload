@@ -4,12 +4,14 @@ import React, {Component} from 'react';
 import AddWorkingFlows from './AddWorkingFlows';
 import ListOfTheWork from './ListOfTheWorks';
 import SearchWorks from './SearchWorks';
+import { isEmptyStatement } from '@babel/types';
 
 class App extends Component {
   constructor(){
     super();
       this.state = {
-        myworks: []
+        myworks: [],
+        lastIndex:  0
       };
   }
 
@@ -18,6 +20,8 @@ class App extends Component {
       .then(response => response.json())
       .then(result => {
         const works = result.map(item =>{
+          item.worksId = this.state.lastIndex;
+          this.setState({ lastIndex: this.state.lastIndex + 1});
           return item;
         })
         this.setState({
