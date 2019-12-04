@@ -7,11 +7,11 @@
   user-select: none;
 }
 
-.work-list {
+.works-list {
   font-size: 1.1em;
 }
 
-.appointment-list .title-item {
+.works-list .title-item {
   border-bottom: 1px dotted gray;
 }
 
@@ -26,7 +26,7 @@
   line-height: 100%;
 }
 
-.works-list .dt-date {
+.works-list .item-list {
   font-weight: 600;
   color: #667b82;
 }
@@ -34,7 +34,9 @@
 .works-list .dt-date {
   font-style: italic;
 }
-
+.works-list .dt-date{
+  margin: auto;
+}
 .works-list .dt-date {
   line-height: 120%;
 }

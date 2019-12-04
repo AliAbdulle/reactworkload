@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {FaTimes} from 'react-icons/fa';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 class ListOfTheWorks extends Component {
 
@@ -15,16 +18,26 @@ class ListOfTheWorks extends Component {
                 {this.props.works.map(item => (
                     <div className="title-item col-media py-3" key={item.worksId}>
                         <div className="mr-3">
-                            <button className="work-delete btn btn-sm btn-danger">X</button>
+                            <button className="work-delete btn btn-sm btn-danger"
+                            onClick={() => this.props.deleteWorks(item)}>
+                                <FaTimes />
+                            </button>
                         </div>
 
 
                         <div className="name-info madia-body">
                             <div className="title-head d-flex">
                                 <span className="title-name">{item.title}</span>
-                                <span className="dt-date ml-outo">{item.hireDate}</span>
+                                <span className="dt-date ml-outo">
+                                    <Moment
+                                        date={item.hireDate}
+                                        parse="YYYY-MM-dd hh:mm"
+                                        format="MMM-D   h:mma"
+                                    />
+                                </span>
 
                             </div>
+
                             <div className="full-name">
                                 <span className="label-item"></span>
                                 <span>{item.fullName}</span>

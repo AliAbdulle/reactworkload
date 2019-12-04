@@ -23,5 +23,17 @@
         "fullName": "Marj Joleas",
         "hireDate": "2009-01-19 07:00",
         "habby": "He liked to play soccer, and watch movies"
+    },
+    {
+        "title": "Marketing",
+        "fullName": "Fasal how",
+        "hireDate": "1999-01-29 10:00",
+        "habby": "He liked to be doctor for kids"
+    },
+    {
+        "title": "Manager",
+        "fullName": "larry Wells",
+        "hireDate": "2010-03-10 18:00",
+        "habby": "He hope  to play football, and  movies"
     }
 ]

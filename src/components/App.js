@@ -6,6 +6,8 @@ import ListOfTheWork from './ListOfTheWorks';
 import SearchWorks from './SearchWorks';
 import { isEmptyStatement } from '@babel/types';
 
+import {without} from 'lodash';
+
 class App extends Component {
   constructor(){
     super();
@@ -13,6 +15,18 @@ class App extends Component {
         myworks: [],
         lastIndex:  0
       };
+
+      this.deleteWorks = this.deleteWorks.bind(this);
+  }
+
+  deleteWorks(work) {
+    let tempWorks =this.state.myworks;
+    tempWorks = without(tempWorks, work)
+
+    this.setState({
+      myworks: tempWorks
+    })
+
   }
 
   componentDidMount() {
@@ -38,7 +52,8 @@ class App extends Component {
               <div className="container">
                 <AddWorkingFlows />
                 <SearchWorks />
-                <ListOfTheWork works = {this.state.myworks}/>
+                <ListOfTheWork works = {this.state.myworks}
+                deleteWorks={this.deleteWorks}/>
               </div>
             </div>
           </div>
