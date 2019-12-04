@@ -4,8 +4,12 @@ class AddWorkingFlows extends Component {
 
     render() {
         return (
-            <div className="card texycenter mt-m">
-                <div className="apt-addheading card-header bg-primery text-white">
+            <div className={
+                'card textcenter mt-3 ' +
+                (this.props.formDisplay ? '' : 'add-workingflows')
+            }
+            >
+                <div className="apt-addheading card-header bg-primary text-white">
                     Add WorkingFlow
                 </div>
 
