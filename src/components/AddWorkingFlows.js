@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {FaPlus} from 'react-icons/fa';
 
 class AddWorkingFlows extends Component {
 
@@ -9,8 +10,10 @@ class AddWorkingFlows extends Component {
                 (this.props.formDisplay ? '' : 'add-workingflows')
             }
             >
-                <div className="apt-addheading card-header bg-primary text-white">
-                    Add WorkingFlow
+                <div className="apt-addheading card-header bg-primary text-white"
+                onClick={this.props.toggleForm}
+                >
+                    <FaPlus /> Add WorkingFlow
                 </div>
 
                 <div className="card-body">
@@ -18,16 +21,16 @@ class AddWorkingFlows extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="petName" reasOnly
+                                htmlFor="title" reasOnly
                             >
-                                petName
+                                Title
                             </label>
                             <div className="col-md-10">
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="patName"
-                                    placeholder="pat's Name"
+                                    name="title"
+                                    placeholder="title"
                                 />
                             </div>
                         </div>
@@ -35,16 +38,16 @@ class AddWorkingFlows extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="ownerName"
+                                htmlFor="fullName"
                             >
-                                ownerName
+                                fullName
                             </label>
                             <div className="col-md-10">
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="ownerName"
-                                    placeholder="owner's Name"
+                                    name="fullName"
+                                    placeholder="full Name"
                                 />
                             </div>
                         </div>
@@ -52,7 +55,7 @@ class AddWorkingFlows extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="aptDate"
+                                htmlFor="hireDate"
                             >
                                 Date
                             </label>
@@ -60,14 +63,14 @@ class AddWorkingFlows extends Component {
                                 <input
                                     type="date"
                                     className="form-control"
-                                    name="aptDate"
-                                    id="aptDate"
+                                    name="hireDate"
+                                    id="ahireDate"
                                 />
                             </div>
 
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="Time"
+                                htmlFor="time"
                             >
                                 Time
                             </label>
@@ -75,8 +78,8 @@ class AddWorkingFlows extends Component {
                                 <input
                                     type="time"
                                     className="form-control"
-                                    name="aptIime"
-                                    id="aptTime"
+                                    name="time"
+                                    id="time"
                                 />
                             </div>
                         </div>
@@ -84,18 +87,18 @@ class AddWorkingFlows extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="aptDate"
+                                htmlFor="hobby"
                             >
-                                Apt Note
+                                Hobby
                             </label>
                             <div className="col-md-10">
                                 <textarea
                                     className="form-control"
                                     rows="4"
                                     cols="50"
-                                    name="aptNote"
-                                    id="aptNote"
-                                    placeholder="Appoointment Note"
+                                    name="hobby"
+                                    id="aptNhobbyote"
+                                    placeholder="hobby"
                                 />
                             </div>
                         </div>
@@ -106,7 +109,7 @@ class AddWorkingFlows extends Component {
                                     type="submit"
                                     className="btn-primary d-block ml-outro"
                                     >
-                                        Add Appoointment
+                                        Add WorkingFlows
                                     </button>
                             </div>
                         </div>

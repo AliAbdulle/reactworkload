@@ -13,10 +13,17 @@ class App extends Component {
     super();
       this.state = {
         myworks: [],
+        formDisplay: false,
         lastIndex:  0
       };
 
       this.deleteWorks = this.deleteWorks.bind(this);
+      this.toggleForm = this.toggleForm.bind(this);
+    }
+  toggleForm(){
+    this.setState({
+      formDisplay: this.state.formDisplay
+    })
   }
 
   deleteWorks(work) {
@@ -50,7 +57,10 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                <AddWorkingFlows />
+                <AddWorkingFlows 
+                  formDisplay={this.props.toggleForm}
+                  toggleForm={this.toggleForm}
+                />
                 <SearchWorks />
                 <ListOfTheWork works = {this.state.myworks}
                 deleteWorks={this.deleteWorks}/>
