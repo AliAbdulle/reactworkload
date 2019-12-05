@@ -16,7 +16,7 @@ class ListOfTheWorks extends Component {
         return (
             <div className="works-list item-list mb-2">
                 {this.props.works.map(item => (
-                    <div className="title-item col-media py-3" key={item.worksId}>
+                    <div className="work-addheading col-media py-3" key={item.worksId}>
                         <div className="mr-3">
                             <button className="work-delete btn btn-sm btn-danger"
                             onClick={() => this.props.deleteWorks(item)}>

@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import AddWorkingFlows from './AddWorkingFlows';
 import ListOfTheWork from './ListOfTheWorks';
 import SearchWorks from './SearchWorks';
-import { isEmptyStatement } from '@babel/types';
+
 
 import {without} from 'lodash';
 
@@ -19,11 +19,24 @@ class App extends Component {
 
       this.deleteWorks = this.deleteWorks.bind(this);
       this.toggleForm = this.toggleForm.bind(this);
+      this.addWorkingFlows = this.addWorkingFlows.bind(this);
     }
   toggleForm(){
     this.setState({
-      formDisplay: this.state.formDisplay
-    })
+      formDisplay: !this.state.formDisplay
+    });
+  }
+
+  addWorkingFlows(works){
+
+    let tempWorks = this.state.addWorkingFlows;
+    works.worksId = this.state.lastIndex;
+    tempWorks.unshift(works);
+
+    this.setState({
+      myworks: tempWorks,
+      lastIndex: this.state.lastIndex + 1
+    });
   }
 
   deleteWorks(work) {
@@ -58,8 +71,9 @@ class App extends Component {
             <div className="col-md-12 bg-white">
               <div className="container">
                 <AddWorkingFlows 
-                  formDisplay={this.props.toggleForm}
+                  formDisplay={this.state.formDisplay}
                   toggleForm={this.toggleForm}
+                  addWorkingFlows={this.addWorkingFlows}
                 />
                 <SearchWorks />
                 <ListOfTheWork works = {this.state.myworks}

@@ -3,6 +3,53 @@ import {FaPlus} from 'react-icons/fa';
 
 class AddWorkingFlows extends Component {
 
+    constructor(){
+        super();
+        this.state ={
+        title: '',
+        fullName: '',
+        hireDate: '',
+        time: '',
+        hobby: ''
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
+    }
+
+    handleAdd(e) {
+        e.preventDefault();
+        let tempWork ={
+        title: this.state.title,
+        fullName: this.state.fullName,
+        hireDate: this.state.hireDate + ' ' +  this.state.time,
+        hobby: this.state.hobby
+    }
+
+    this.props.addWorkingFlows (tempWork);
+
+    this.setState({
+        title: '',
+        fullName: '',
+        hireDate: '',
+        time: '',
+        hobby: ''
+    });
+
+    this.props.toggleForm();
+}
+ 
+    handleChange(e) {
+        const terget = e.terget;
+        const value = terget.value;
+        const name = terget.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+
+
     render() {
         return (
             <div className={
@@ -10,14 +57,14 @@ class AddWorkingFlows extends Component {
                 (this.props.formDisplay ? '' : 'add-workingflows')
             }
             >
-                <div className="apt-addheading card-header bg-primary text-white"
+                <div className="work-addheading card-header bg-primary text-white"
                 onClick={this.props.toggleForm}
                 >
                     <FaPlus /> Add WorkingFlow
                 </div>
 
                 <div className="card-body">
-                    <form id="apt-form" noValidate onSubmit={this.handleAdd}>
+                    <form id="title-form" noValidate onSubmit={this.handleAdd}>
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
@@ -31,6 +78,8 @@ class AddWorkingFlows extends Component {
                                     className="form-control"
                                     name="title"
                                     placeholder="title"
+                                    value={this.state.title}
+                                    onClick={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -40,7 +89,7 @@ class AddWorkingFlows extends Component {
                                 className="col-md-2 col-form-label text-md-right"
                                 htmlFor="fullName"
                             >
-                                fullName
+                                FullName
                             </label>
                             <div className="col-md-10">
                                 <input
@@ -48,6 +97,8 @@ class AddWorkingFlows extends Component {
                                     className="form-control"
                                     name="fullName"
                                     placeholder="full Name"
+                                    value={this.state.fullName}
+                                    onClick={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -64,7 +115,9 @@ class AddWorkingFlows extends Component {
                                     type="date"
                                     className="form-control"
                                     name="hireDate"
-                                    id="ahireDate"
+                                    id="hireDate"
+                                    value={this.state.hireDate}
+                                    onClick={this.handleChange}
                                 />
                             </div>
 
@@ -80,6 +133,8 @@ class AddWorkingFlows extends Component {
                                     className="form-control"
                                     name="time"
                                     id="time"
+                                    value={this.state.time}
+                                    onClick={this.handleChange}
                                 />
                             </div>
                         </div>
@@ -99,6 +154,8 @@ class AddWorkingFlows extends Component {
                                     name="hobby"
                                     id="aptNhobbyote"
                                     placeholder="hobby"
+                                    value={this.state.hobby}
+                                    onClick={this.handleChange}
                                 />
                             </div>
                         </div>
