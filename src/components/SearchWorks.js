@@ -27,13 +27,16 @@ class SearchWorks extends Component {
                                 <button className={
                                 'sort-by dropdown-item' +
                                 (this.props.orderby === 'title ' ? 'active': '')
-                                }href="#">
+                                }
+                                onClick={e => this.props.changeOrder('title', this.props.orderDir)}
+                                href="#">
                                     Title
                                 </button>
                                 <button className={
                                 'sort-by dropdown-item' +
                                 (this.props.hireDate === 'hireDate ' ? 'active': '')
                                 }
+                                onClick={e => this.props.changeOrder('hireSate', this.props.orderDir)}
                                  href="#">
                                     Date
                                 </button>
@@ -41,6 +44,7 @@ class SearchWorks extends Component {
                                 'sort-by dropdown-item' +
                                 (this.props.orderby === 'fullName ' ? 'active': '')
                                 }
+                                onClick={e => this.props.changeOrder('fullName', this.props.orderDir)}
                                  href="#">
                                     fullName
                                 </button>
@@ -49,6 +53,7 @@ class SearchWorks extends Component {
                                 'sort-by dropdown-item' +
                                 (this.props.orderDir === 'asc ' ? 'active': '')
                                 }
+                                onClick={e => this.props.changeOrder( this.props.orderby, 'asc')}
                                  href="#">
                                     Asc
                                 </button>
@@ -56,6 +61,7 @@ class SearchWorks extends Component {
                                 'sort-by dropdown-item' +
                                 (this.props.orderDir === 'desc ' ? 'active': '')
                                 }
+                                onClick={e => this.props.changeOrder( this.props.orderby, 'desc')}
                                  href="#">
                                     Desc
                                 </button>

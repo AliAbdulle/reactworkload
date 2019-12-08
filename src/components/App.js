@@ -22,13 +22,19 @@ class App extends Component {
       this.deleteWorks = this.deleteWorks.bind(this);
       this.toggleForm = this.toggleForm.bind(this);
       this.addWorkingFlows = this.addWorkingFlows.bind(this);
+      this.changeOrder = this.changeOrder.bind(this);
     }
   toggleForm(){
     this.setState({
       formDisplay: !this.state.formDisplay
     });
   }
-
+  changeOrder(order, dir){
+    this.setState({
+      orderBy: order,
+      orderDir: dir
+    });
+  }
   addWorkingFlows(works){
 
     let tempWorks = this.state.addWorkingFlows;
@@ -76,7 +82,7 @@ class App extends Component {
     }
 
     filteredWorks.sort((a,b) => {
-        if(a[this.state.orderBy].toLowerCase()<
+        if(a[this.state.orderBy].toLowerCase() <
             b[this.state.orderBy].toLowerCase()
             )
             {
@@ -102,6 +108,7 @@ class App extends Component {
                 <SearchWorks 
                     orderBy={this.state.orderBy}
                     orderDir={this.state.orderDir}
+                    changeOrder={this.changeOrder}
                 />
                 
                 <ListOfTheWork works = {filteredWorks}
