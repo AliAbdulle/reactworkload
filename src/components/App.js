@@ -14,6 +14,8 @@ class App extends Component {
       this.state = {
         myworks: [],
         formDisplay: false,
+        orderBy: 'title',
+        orderDir: 'asc',
         lastIndex:  0
       };
 
@@ -64,6 +66,28 @@ class App extends Component {
       });
   }
   render() {
+    let order;
+    let filteredWorks = this.state. myworks;
+    if (filteredWorks === 'asc') {
+      order = 1;
+    }
+    else {
+      order = -1;
+    }
+
+    filteredWorks.sort((a,b) => {
+        if(a[this.state.orderBy].toLowerCase()<
+            b[this.state.orderBy].toLowerCase()
+            )
+            {
+              return -1 * order;
+            }
+            else{
+              return 1 * order;
+            }
+    })
+
+
     return (
       <main className="page bg-gray" id="workingflow">
         <div className="container">
@@ -75,8 +99,12 @@ class App extends Component {
                   toggleForm={this.toggleForm}
                   addWorkingFlows={this.addWorkingFlows}
                 />
-                <SearchWorks />
-                <ListOfTheWork works = {this.state.myworks}
+                <SearchWorks 
+                    orderBy={this.state.orderBy}
+                    orderDir={this.state.orderDir}
+                />
+                
+                <ListOfTheWork works = {filteredWorks}
                 deleteWorks={this.deleteWorks}/>
               </div>
             </div>
