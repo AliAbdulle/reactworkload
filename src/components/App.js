@@ -16,6 +16,7 @@ class App extends Component {
         formDisplay: false,
         orderBy: 'title',
         orderDir: 'asc',
+        queryText: 'Sales Person',
         lastIndex:  0
       };
 
@@ -23,12 +24,17 @@ class App extends Component {
       this.toggleForm = this.toggleForm.bind(this);
       this.addWorkingFlows = this.addWorkingFlows.bind(this);
       this.changeOrder = this.changeOrder.bind(this);
+      this.SearchWorks = this.SearchWorks.bind(this);
     }
   toggleForm(){
     this.setState({
       formDisplay: !this.state.formDisplay
     });
   }
+  SearchWorks(query){
+    this.setState({queryText: query})
+  }
+
   changeOrder(order, dir){
     this.setState({
       orderBy: order,
@@ -81,8 +87,9 @@ class App extends Component {
       order = -1;
     }
 
-    filteredWorks.sort((a,b) => {
-        if(a[this.state.orderBy].toLowerCase() <
+    let filter = filteredWorks.sort((a,b) => {
+        if(
+            a[this.state.orderBy].toLowerCase() <
             b[this.state.orderBy].toLowerCase()
             )
             {
@@ -91,6 +98,15 @@ class App extends Component {
             else{
               return 1 * order;
             }
+    }).filter(eachItem =>{
+      return (
+        eachItem['title'].toLowerCase()
+        .includes(this.state.queryText.toLowerCase()) ||
+        eachItem['fullName'].toLowerCase()
+        .includes(this.state.queryText.toLowerCase())||
+        eachItem['habby'].toLowerCase()
+        .includes(this.state.queryText.toLowerCase())
+      )
     })
 
 
@@ -109,6 +125,7 @@ class App extends Component {
                     orderBy={this.state.orderBy}
                     orderDir={this.state.orderDir}
                     changeOrder={this.changeOrder}
+                    SearchWorks={this.SearchWorks}
                 />
                 
                 <ListOfTheWork works = {filteredWorks}

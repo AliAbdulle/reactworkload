@@ -12,6 +12,7 @@ class SearchWorks extends Component {
                             type="text"
                             className="form-control"
                             arial-label="search Works"
+                            onClick={e =>this.props.SearchWorks(e.target.value)}
                         />
                         <div className="input-group-append">
                             <button
